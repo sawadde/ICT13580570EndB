@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="ICT13580570EndB.MainPage"
+    Title="ICT13580570EndB">
+
+     <ContentPage.ToolbarItems>
+        <ToolbarItem
+            x:Name="newButton"
+            Text="New" />
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <ListView
+            x:Name="carListView"
+            RowHeight="300">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <TextCell.ContextActions>
+                            <MenuItem
+                                Clicked="Edit_Clicked"
+                                CommandParameter="{Binding .}"
+                                Text="Edit" />
+                            <MenuItem
+                                Clicked="Delete_Clicked"
+                                CommandParameter="{Binding .}"
+                                IsDestructive="True"
+                                Text="Delete" />
+
+                        </TextCell.ContextActions>
+
+                        <StackLayout Padding="10">
+
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label
+                                    FontAttributes="Bold"
+                                    Text="{Binding FirstName}"
+                                    TextColor="Navy" />
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    Text="{Binding LastName}"
+                                    TextColor="Navy" />
+                            </StackLayout>
+
+                            <Label Text="{Binding TypeCar, StringFormat='ประเภทรถ {0}'}" />
+
+                            <Label Text="{Binding Brand, StringFormat='ยี่ห้อ {0}'}" />
+
+                            <Label Text="{Binding Brand, StringFormat='รุ่น {0}'}" />
+
+                            <Label Text="{Binding Year, StringFormat='ปี {0}'}" />
+
+                            <Label Text="{Binding Number, StringFormat='เลขไมล์(กม.) {0}'}" />
+
+                            <Label
+                                LineBreakMode="TailTruncation"
+                                Text="{Binding DetailCar, StringFormat='รายละเอียด {0}'}" />
+
+                            <Label Text="{Binding Price, StringFormat='ราคา {0} บาท'}" />
+
+                            <Label Text="{Binding City, StringFormat='จังหวัด {0} '}" />
+
+                            <Label Text="{Binding Phone, StringFormat='เบอร์โทร {0} '}" />
+
+                        </StackLayout>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </ScrollView>
+
+
+</ContentPage>
